@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 标签速查手册</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <button class="hamburger" id="hamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="topbar-title">HTML 标签速查手册</span>
+    <div class="search-box" id="searchBox">
+      <input type="text" id="searchInput" placeholder="搜索标签，如 img、table、class..." autocomplete="off">
+    </div>
+  </header>
+  <div class="overlay" id="overlay"></div>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <nav id="tagNav"></nav>
+    </aside>
+    <main class="content" id="content">
+      <div class="welcome" id="welcome">
+        <h1>HTML 标签速查手册</h1>
+        <p>在左侧选择标签，或使用顶部搜索框快速查找。</p>
+        <p>本手册涵盖 80+ 个 HTML 标签的完整属性、CSS 样式及使用说明。</p>
+      </div>
+      <div class="tag-page" id="tagPage" style="display:none;"></div>
+    </main>
+  </div>
+  <script src="js/render.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
