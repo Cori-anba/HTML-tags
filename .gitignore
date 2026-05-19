@@ -9,8 +9,5 @@ input 标签讲解页面内容范本.docx
 # Planning and design documents
 docs/
 
-# Development screenshots
-screenshots/
-
 # Dependencies
 node_modules/
