@@ -103,10 +103,13 @@ strong { color: var(--accent-red); font-weight: 600; }
 /* === 右侧目录导航 (ToC) === */
 .toc {
   width: 200px; min-width: 200px;
-  position: fixed; top: calc(var(--topbar-height) + 24px); right: 20px;
-  z-index: 90;
+  position: sticky; top: calc(var(--topbar-height) + 24px);
+  align-self: flex-start;
   display: none;
   font-size: 0.82rem;
+  margin-top: 32px; margin-right: 24px;
+  max-height: calc(100vh - var(--topbar-height) - 48px);
+  overflow-y: auto;
 }
 .toc.visible { display: block; }
 
@@ -213,7 +216,7 @@ strong { color: var(--accent-red); font-weight: 600; }
 .content {
   margin-left: var(--sidebar-width);
   flex: 1; padding: 32px 40px;
-  max-width: 1000px;
+  max-width: 900px;
 }
 
 .welcome {
