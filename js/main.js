@@ -1,30 +1,22 @@
 (function () {
   'use strict';
 
-  var tagData = {};
-  var globalData = {};
+  var tagData = (typeof HTML_TAGS_DATA !== 'undefined') ? HTML_TAGS_DATA : {};
+  var globalData = (typeof GLOBAL_ATTRIBUTES_DATA !== 'undefined') ? GLOBAL_ATTRIBUTES_DATA : {};
   var sortedKeys = [];
 
-  Promise.all([
-    fetch('data/html-tags.json').then(function (r) { return r.json(); }),
-    fetch('data/global-attributes.json').then(function (r) { return r.json(); })
-  ]).then(function (results) {
-    tagData = results[0];
-    globalData = results[1];
-
-    sortedKeys = Object.keys(tagData).sort();
-
-    Sidebar.init(tagData, globalData);
-
-    Search.init(tagData, globalData, sortedKeys);
-
-    window.addEventListener('hashchange', handleRoute);
-    handleRoute();
-  }).catch(function (err) {
-    console.error('数据加载失败:', err);
+  if (Object.keys(tagData).length === 0) {
     document.getElementById('content').innerHTML =
-      '<div class="welcome"><h1>加载失败</h1><p>请检查 data/ 目录下的 JSON 文件是否存在。</p></div>';
-  });
+      '<div class="welcome"><h1>加载失败</h1><p>数据文件未正确加载，请检查 data/ 目录。</p></div>';
+    return;
+  }
+
+  sortedKeys = Object.keys(tagData).sort();
+
+  Sidebar.init(tagData, globalData);
+  Search.init(tagData, globalData, sortedKeys);
+  window.addEventListener('hashchange', handleRoute);
+  handleRoute();
 
   function handleRoute() {
     var hash = window.location.hash.replace('#', '');
