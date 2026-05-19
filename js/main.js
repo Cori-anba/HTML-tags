@@ -31,6 +31,7 @@
     if (!hash) {
       document.getElementById('welcome').style.display = 'block';
       document.getElementById('tagPage').style.display = 'none';
+      document.getElementById('toc').classList.remove('visible');
       Sidebar.setActive(null);
       return;
     }
@@ -43,14 +44,15 @@
       var g = globalData;
       var html = '<h2>HTML 全局属性</h2>';
       html += '<p class="tag-subtitle">Global Attributes</p>';
-      html += '<div class="tag-desc">' + (g.description || '') + '</div>';
+      html += '<div class="tag-desc" id="section-basic">' + (g.description || '') + '</div>';
 
       if (g.attributes && g.attributes.length > 0) {
-        html += '<h3>属性表格</h3>';
+        html += '<h3 id="section-attributes">属性表格</h3>';
         html += Render.buildTable(g.attributes, 'attr');
       }
 
       page.innerHTML = html;
+      Render.buildToc();
       Sidebar.setActive('global-attributes');
       return;
     }
@@ -62,6 +64,7 @@
     } else {
       document.getElementById('welcome').style.display = 'block';
       document.getElementById('tagPage').style.display = 'none';
+      document.getElementById('toc').classList.remove('visible');
     }
   }
 })();

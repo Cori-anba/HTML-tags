@@ -100,6 +100,54 @@ strong { color: var(--accent-red); font-weight: 600; }
   min-height: calc(100vh - var(--topbar-height));
 }
 
+/* === 右侧目录导航 (ToC) === */
+.toc {
+  width: 200px; min-width: 200px;
+  position: fixed; top: calc(var(--topbar-height) + 24px); right: 20px;
+  z-index: 90;
+  display: none;
+  font-size: 0.82rem;
+}
+.toc.visible { display: block; }
+
+.toc-title {
+  font-weight: 700; color: var(--text-primary);
+  margin-bottom: 10px; font-size: 0.85rem;
+}
+
+.toc ul {
+  list-style: none; padding: 0; margin: 0;
+  border-left: 2px solid var(--border-color);
+}
+
+.toc ul li { margin: 0; }
+
+.toc ul li a {
+  display: block; padding: 4px 0 4px 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  transition: color 0.15s, border-color 0.15s;
+  line-height: 1.4;
+}
+
+.toc ul li a:hover { color: var(--warm-orange); }
+
+.toc ul li a.active {
+  color: var(--warm-orange);
+  border-left-color: var(--warm-orange);
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .toc { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  .toc { display: none !important; }
+}
+
 /* === 侧边栏 === */
 .sidebar {
   width: var(--sidebar-width); min-width: var(--sidebar-width);

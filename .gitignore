@@ -1,0 +1,16 @@
+# Personal notes / reference documents
+具体的提示词.txt
+input 标签讲解页面内容范本.docx
+
+# Internal tool data
+.superpowers/
+.claude/
+
+# Planning and design documents
+docs/
+
+# Development screenshots
+screenshots/
+
+# Dependencies
+node_modules/
